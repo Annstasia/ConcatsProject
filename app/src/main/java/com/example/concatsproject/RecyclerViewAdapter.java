@@ -1,8 +1,4 @@
 package com.example.concatsproject;
-
-
-
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-// адаптер элементов каталога Note
+// Рыба для адаптера скоммунизжена из читательского дневника. Прошу понять и простить
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
     private boolean actionMode;
     private List<Contact> notes;
@@ -32,28 +28,19 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         this.notes = notes;
     }
 
-
-    /**
-     * Создание новых View и ViewHolder элемента списка, которые впоследствии могут переиспользоваться.
-     */
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         View v;
         v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.recycler_item, viewGroup, false);
         ViewHolder vh = new ViewHolder(v);
-//        v.setOnClickListener(this);
         return vh;
     }
 
-    /**
-     * Заполнение виджетов View данными из элемента списка с номером i
-     */
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int i) {
         viewHolder.nameView.setText(notes.get(i).getName());
         viewHolder.phoneView.setText(notes.get(i).getPhone());
     }
-
 
 
     @Override
@@ -68,33 +55,20 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
 
-
     public void clearAdapter() {
         notes.clear();
         notifyDataSetChanged();
     }
 
-    /**
-     * Реализация класса ViewHolder, хранящего ссылки на виджеты.
-     */
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        //        private TextView path1;
         private TextView nameView;
         private TextView phoneView;
 
-
-//        private ImageView icon;
-
         public ViewHolder(final View itemView) {
             super(itemView);
-//            path1 = (TextView) itemView.findViewById(R.id.catalogN);
             nameView = (TextView) itemView.findViewById(R.id.nameView);
             phoneView = (TextView) itemView.findViewById(R.id.phoneView);
-
-
-
-
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -109,7 +83,4 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         }
 
     }
-
-
-
 }
